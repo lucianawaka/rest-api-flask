@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -29,4 +29,6 @@ def get_stores():
 
 @app.route("/store", methods=['POST'])
 def create_store():
-    return {"stores": stores}
+    new_store = { "name": "My Store from Home", "items":[] }
+    stores.append( new_store )
+    return new_store, 201
